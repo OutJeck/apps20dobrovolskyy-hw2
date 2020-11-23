@@ -40,6 +40,11 @@ public class ImmutableLinkedListTest {
         linkedList.add(8, "haha");
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testAddObjectByIndexMinusError() {
+        linkedList.add(-8, "haha");
+    }
+
     @Test
     public void testAddAllObjects() {
         ImmutableLinkedList newLinkedList = (ImmutableLinkedList) linkedList.addAll(new Object[]{6, 'a'});
@@ -76,6 +81,11 @@ public class ImmutableLinkedListTest {
         linkedList.get(8);
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetObjectMinusError() {
+        linkedList.get(-8);
+    }
+
     @Test
     public void testRemoveObject() {
         ImmutableLinkedList newLinkedList = (ImmutableLinkedList) linkedList.remove(1);
@@ -97,6 +107,11 @@ public class ImmutableLinkedListTest {
         linkedList.remove(6);
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveObjectMinusError() {
+        linkedList.remove(-6);
+    }
+
     @Test
     public void testSetObject() {
         ImmutableLinkedList newLinkedList = (ImmutableLinkedList) linkedList.set(1, "2.2");
@@ -105,9 +120,13 @@ public class ImmutableLinkedListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testSetObjectError() {
+    public void testSetObjectMinusError() {
         linkedList.set(-5, "2.2");
+    }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSetObjectError() {
+        linkedList.set(5, "2.2");
     }
 
     @Test

@@ -82,7 +82,7 @@ public class ImmutableArrayList implements ImmutableList {
     @Override
     public int indexOf(Object e) {
         for (int i = 0; i < array.length; i++) {
-            if(array[i].equals(e)) {
+            if (array[i].equals(e)) {
                 return i;
             }
         }

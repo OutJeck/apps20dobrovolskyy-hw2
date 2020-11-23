@@ -155,7 +155,8 @@ public class ImmutableLinkedList implements ImmutableList {
         Object[] newList = new Object[this.size - 1];
         Node currentNode = this.head;
 
-        int i = 0; int j = 0;
+        int i = 0;
+        int j = 0;
         while (currentNode != null) {
             if (i != index) {
                 newList[j] = currentNode.data;
@@ -177,7 +178,7 @@ public class ImmutableLinkedList implements ImmutableList {
         Node currentNode = this.head;
 
         int counter = 0;
-        while(currentNode != null) {
+        while (currentNode != null) {
             if (counter != index) {
                 newList[counter] = currentNode.data;
             } else {
@@ -194,7 +195,7 @@ public class ImmutableLinkedList implements ImmutableList {
         ImmutableLinkedList newList = cloneList(this);
 
         int counter = 0;
-        while(counter < this.size) {
+        while (counter < this.size) {
             if (newList.head.data.equals(e)) {
                 return counter;
             }
@@ -259,11 +260,6 @@ public class ImmutableLinkedList implements ImmutableList {
 
     public ImmutableLinkedList removeLast() {
         return (ImmutableLinkedList) remove(this.size - 1);
-    }
-
-    public static void main(String[] args) {
-        ImmutableLinkedList linkedList = new ImmutableLinkedList(new Object[]{1, 2.1, "string"});
-        System.out.println(linkedList.toString());
     }
 
 }

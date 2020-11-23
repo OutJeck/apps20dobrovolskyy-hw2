@@ -64,6 +64,11 @@ public class ImmutableArrayListTest {
         arrayList.addAll(8, new Object[]{"haha"});
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testAddAllObjectsByIndexMinusError() {
+        arrayList.addAll(-8, new Object[]{"haha"});
+    }
+
     @Test
     public void testGetObject() {
         Object newObj = arrayList.get(2);
@@ -74,6 +79,11 @@ public class ImmutableArrayListTest {
     @Test(expected = IndexOutOfBoundsException.class)
     public void testGetObjectError() {
         arrayList.get(8);
+    }
+
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testGetObjectMinusError() {
+        arrayList.get(-8);
     }
 
     @Test
@@ -97,6 +107,11 @@ public class ImmutableArrayListTest {
         emptyList.remove(1);
     }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testRemoveObjectMinusError() {
+        emptyList.remove(-5);
+    }
+
     @Test
     public void testSetObject() {
         ImmutableArrayList newArrayList = (ImmutableArrayList) arrayList.set(1, "2.2");
@@ -105,9 +120,13 @@ public class ImmutableArrayListTest {
     }
 
     @Test(expected = IndexOutOfBoundsException.class)
-    public void testSetObjectError() {
+    public void testSetObjectMinusError() {
         arrayList.set(-5, "2.2");
+    }
 
+    @Test(expected = IndexOutOfBoundsException.class)
+    public void testSetObjectError() {
+        arrayList.set(5, "2.2");
     }
 
     @Test
