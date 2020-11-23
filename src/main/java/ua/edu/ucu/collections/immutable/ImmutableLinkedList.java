@@ -7,7 +7,7 @@ public class ImmutableLinkedList implements ImmutableList {
     private int size;
 
     public static class Node {
-        private Object data;
+        private final Object data;
         private Node next;
 
         public Node(Object data) {
