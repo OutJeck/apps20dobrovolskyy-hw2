@@ -1,12 +1,33 @@
 package ua.edu.ucu.collections;
 
+import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
 public class QueueTest {
+    Queue queue;
+
+    @Before
+    public void setUP() {
+        this.queue = new Queue();
+
+        queue.enqueue(1);
+        queue.enqueue('2');
+        queue.enqueue(3.0);
+        queue.enqueue("four");
+    }
     
     @Test
-    public void testSomeMethod() {
+    public void testPeak() {
+        assertEquals(queue.peek(), 1);
+    }
+
+    @Test
+    public void testDequeue() {
+        assertEquals(queue.dequeue(), 1);
+        assertEquals(queue.dequeue(), '2');
+        assertEquals(queue.dequeue(), 3.0);
+        assertEquals(queue.dequeue(), "four");
     }
     
 }
